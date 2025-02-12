@@ -1,0 +1,35 @@
+{% extends 'todo/layout.html' %}
+
+{% block content %}
+       <h1> Inicio </h1>
+
+        <ul>
+        
+
+
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th class="col-10"><h3>Lista de mis actividades</h3></th>
+                    <th scope="col"><h4>Editar</h4></th>
+                    <th scope="col"><h4>Eliminar</h4></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for tarea in tareas %}
+                  <tr>
+                    <td><h5>{{ tarea }}</h5></td>
+                    <td>
+                      <a href="{% url 'editar' tarea.id %}" class="btn btn-outline-secondary">Editar</a>
+                    </td>
+                    <td>
+                      <a href="{% url 'eliminar' tarea.id %}" class="btn btn-outline-danger">Eliminar</a>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+              
+
+        </ul>
+{% endblock %}
